@@ -4,25 +4,65 @@ using UnityEngine;
 
 public class ball : MonoBehaviour
 {
+	public float speed;
+	public Rigidbody2D rb;
+	bool isStarted;
+	public Pad pad;
+	float yPosition;
 
-	private void OnCollisionEnter2D(Collision2D collision)
+	void Start()
 	{
-		print("enter!");
+		yPosition = transform.position.y;
 	}
 
-	private void OnCollisionExit2D(Collision2D collision)
+	private void Update()
 	{
-		print("exit!");
+		if (isStarted)
+		{
+			//мяч запущен, ничего не делаем
+		}
+		else 
+		{
+			//	мяч запущен
+			Vector3 padPosition = pad.transform.position;
+			Vector3 ballNewPozition = new Vector3 (padPosition.x, yPosition, 0);
+			transform.position = ballNewPozition;
+
+			//	проверить кнопку мыши
+			if (Input.GetMouseButtonDown(0))
+			{
+				StartBall();
+			}
+		}
+
+		print(rb.velocity);
 	}
 
-	private void OnTriggerEnter2D(Collider2D collision)
+	void StartBall()
 	{
-		print("trigger enter!");
+		Vector2 force = new Vector2(1,1)* speed;
+		rb.AddForce(force);
+		isStarted = true;
 	}
 
-	private void OnTriggerExit2D(Collider2D collision)
-	{
-		print("trigger exit!");
-	}
+	//	private void OnCollisionEnter2D(Collision2D collision)
+	//	{
+	//		print("enter!");
+	//	}
+
+	//	private void OnCollisionExit2D(Collision2D collision)
+	//	{
+	//		print("exit!");
+	//	}
+
+	//	private void OnTriggerEnter2D(Collider2D collision)
+	//	{
+	//		print("trigger enter!");
+	//	}
+
+	//	private void OnTriggerExit2D(Collider2D collision)
+	//	{
+	//		print("trigger exit!");
+	//	}
 
 }
