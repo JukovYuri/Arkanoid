@@ -12,6 +12,7 @@ public class Block : MonoBehaviour
     public Sprite[] sprites;
     SpriteRenderer sr;
     int countHit;
+    bool isCollision;
 
 
 
@@ -22,9 +23,20 @@ public class Block : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
     }
 
+     void Update()
+    {
+        if (isCollision)
+        {
+            TranslateBlock();
+        }
+
+       
+    }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        isCollision = true;
         countHit++;
         if (countHit < countForDestroy)
         {
@@ -39,7 +51,17 @@ public class Block : MonoBehaviour
             bonusInfo.SetBonusInfo(bonus);
             Destroy(gameObject);
         }
+
     }
+
+    void TranslateBlock()
+    {
+        transform.Translate(Time.deltaTime, 0, 0);
+        isCollision = false;
+        print("куку");
+    }
+
+
 
 
 }

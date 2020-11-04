@@ -23,7 +23,10 @@ public class Ball : MonoBehaviour
 		{
 			StartBall();
 		}
+
+		print(rb.velocity.normalized.magnitude);
 	}
+
 
 	void StartBall()
 	{
@@ -32,9 +35,8 @@ public class Ball : MonoBehaviour
 		if (Input.GetMouseButtonDown(0))
 		{
 			float x = Random.Range(-0.75f, 0.75f);
-			float y = Mathf.Sqrt(1 - x * x);
-			Vector2 force = new Vector2(x, y);
-			rb.AddForce(force * forceRange);
+			Vector2 force = new Vector2(x, 1).normalized * forceRange;
+			rb.velocity = force;
 			isStarted = true;
 		}
 	}
