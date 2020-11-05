@@ -6,9 +6,12 @@ public class Pad : MonoBehaviour
 {
     float xPosition, yPosition, zPosition;
     public int redZonePad;
+    public bool autoPlay;
+    Ball ball;
 
     void Start()
     {
+        ball = FindObjectOfType<Ball>();
         yPosition = transform.position.y;
         zPosition = 0;
     }
@@ -27,7 +30,15 @@ public class Pad : MonoBehaviour
         }
         transform.position = new Vector3(xPosition, yPosition, zPosition);
 
+        if (autoPlay)
+        {
+            xPosition = ball.transform.position.x;
+            transform.position = new Vector3(xPosition, yPosition, zPosition);
+        }
+
     }
+
+
 }
 
 

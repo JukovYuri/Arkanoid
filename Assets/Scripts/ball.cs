@@ -6,12 +6,13 @@ public class Ball : MonoBehaviour
 {
 	float xPosition, yPosition, zPosition;
 	Rigidbody2D rb;
-	public Pad pad;
+	Pad pad;
 	public int forceRange;
 	bool isStarted;
 
 	void Start()
 	{
+		pad = FindObjectOfType<Pad>();
 		yPosition = transform.position.y;
 		zPosition = 0;
 		rb = GetComponent<Rigidbody2D>();
