@@ -4,59 +4,43 @@ using UnityEngine;
 
 public class Pad : MonoBehaviour
 {
-    float xPosition, yPosition, zPosition;
-    public int redZonePad;
-    public bool autoPlay;
-    Ball ball;
+	float xPosition, xStartPosition, yPosition, yStartPosition, zPosition;
+	public int redZonePad;
+	public bool autoPlay;
+	Ball ball;
+	GameManager gameManager;
 
-    void Start()
-    {
-        ball = FindObjectOfType<Ball>();
-        yPosition = transform.position.y;
-        zPosition = 0;
-    }
+	void Start()
+	{
+		ball = FindObjectOfType<Ball>();
+		gameManager = FindObjectOfType<GameManager>();
+		yStartPosition = transform.position.y;
+		ToStartPosition();
+	}
 
-    void Update()
-    {
-        xPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
-        if (xPosition > redZonePad)
-        {
-            xPosition = redZonePad;
-        }
+	public void ToStartPosition()
+	{
+		yPosition = yStartPosition;
+		zPosition = 0;
+	}
 
-        else if (xPosition < -redZonePad)
-        {
-            xPosition = -redZonePad;
-        }
-        transform.position = new Vector3(xPosition, yPosition, zPosition);
+	void Update()
+	{
+		if (!gameManager.isPause)
+		{
+			xPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
 
-        if (autoPlay)
-        {
-            xPosition = ball.transform.position.x;
-            transform.position = new Vector3(xPosition, yPosition, zPosition);
-        }
+			xPosition = Mathf.Clamp(xPosition, -redZonePad, redZonePad);
+			transform.position = new Vector3(xPosition, yPosition, zPosition);
 
-    }
+			if (autoPlay)
+			{
+				xPosition = ball.transform.position.x;
+				xPosition = Mathf.Clamp(xPosition, -redZonePad, redZonePad);
+				transform.position = new Vector3(xPosition, yPosition, zPosition);
+			}
+		}
 
 
+	}
 }
-
-
-
-
-
-
-
-
-
-
-//Vector3 mousePixelPosition = Input.mousePosition;
-//Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(mousePixelPosition);
-
-//Vector3 padNewPozition = mouseWorldPosition;
-//padNewPozition.z = 0;
-//padNewPozition.y = yPosition;
-
-////Vector3 padNewPozition = Vector3(mouseWorldPosition.x, yPosition, 0);
-
-//transform.position = padNewPozition;

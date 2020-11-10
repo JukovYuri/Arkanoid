@@ -24,10 +24,23 @@ public class LevelManager : MonoBehaviour
         blocksCount--;
         if (blocksCount <= 0)
         {
-            print("Next lvl");
-            int index = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(index + 1);
+            LoadLevel();
         }
+    }
+
+    public void LoadLevel()
+    {
+        int index = SceneManager.GetActiveScene().buildIndex;
+
+        if (index == 1)
+        {
+            SceneManager.LoadScene(0);
+        }
+
+        else
+        {
+            SceneManager.LoadScene(index + 1);
+        } 
     }
 
 }

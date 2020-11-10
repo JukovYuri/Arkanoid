@@ -10,10 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 896061274211445289}
   - component: {fileID: 896061274211445290}
-  - component: {fileID: 896061274211445288}
   - component: {fileID: 896061274211445295}
-  - component: {fileID: 583383246036144916}
-  - component: {fileID: 8182173487100484695}
+  - component: {fileID: 896061274211445288}
   m_Layer: 0
   m_Name: brick_white
   m_TagString: Untagged
@@ -86,24 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &896061274211445288
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 896061274211445291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 269c390ce31b99d438b55f0a5ed6b117, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  countForDestroy: 2
-  bonus: 5
-  bonusInfo: {fileID: 0}
-  sprites:
-  - {fileID: -7039003182478323700, guid: 5191daa97095e2440a021bfd77176e4e, type: 3}
-  - {fileID: -5559150632450785296, guid: 5191daa97095e2440a021bfd77176e4e, type: 3}
 --- !u!61 &896061274211445295
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -130,37 +110,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
---- !u!95 &583383246036144916
-Animator:
-  serializedVersion: 3
+--- !u!114 &896061274211445288
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896061274211445291}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 63362f00384691d4582d3db4607d7c18, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!111 &8182173487100484695
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 896061274211445291}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 269c390ce31b99d438b55f0a5ed6b117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countForDestroy: 2
+  score: 5
+  isImmortal: 0
+  isInvisible: 0
+  sprites:
+  - {fileID: -7039003182478323700, guid: 5191daa97095e2440a021bfd77176e4e, type: 3}
+  - {fileID: -5559150632450785296, guid: 5191daa97095e2440a021bfd77176e4e, type: 3}

@@ -134,5 +134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d0a3f9dfd12db41bfe15bdaf89140f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pad: {fileID: 0}
   forceRange: 20
+  pad: {fileID: 8109091244131361689, guid: fa117a061f9bcc249b25b617654cbda3, type: 3}
+  gameManager: {fileID: 0}

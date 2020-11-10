@@ -6,16 +6,22 @@ using UnityEngine.EventSystems;
 
 public class Block : MonoBehaviour
 {
-	[Tooltip("Количество попаданий в блок до разрушения")]
+	[Header("Количество попаданий в блок до разрушения")]
 	public int countForDestroy;
-	[Tooltip("Количество очков за уничтожение блока")]
-	public int bonus;
-	BonusInfo bonusInfo;
+	[Space]
+	[Header("Количество очков за уничтожение блока")]
+	public int score;
+	[Space]
+	[Header("Неразрушаемость")]
+	public bool isImmortal;
+	public bool isInvisible;
+	[SerializeField]
+	GameManager gameManager;
+	[SerializeField]
 	LevelManager levelManager;
 	public Sprite[] sprites;
 	SpriteRenderer sr;
 	int countHit;
-	bool isCollision;
 
 
 
@@ -23,45 +29,44 @@ public class Block : MonoBehaviour
 	{
 		countHit = 0;
 		sr = GetComponent<SpriteRenderer>();
-		bonusInfo = FindObjectOfType<BonusInfo>();
+		gameManager = FindObjectOfType<GameManager>();
 		levelManager = FindObjectOfType<LevelManager>();
-
-		levelManager.BlockCreated();
-	}
-
-	void Update()
-	{
-		if (isCollision)
+		if (!isImmortal)
 		{
-			TranslateBlock();
+			levelManager.BlockCreated();
 		}
-	}
 
+		if (isInvisible)
+		{
+			sr.enabled = false;
+		}
+
+	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		isCollision = true;
-		countHit++;
-		if (countHit < countForDestroy)
+		if (isInvisible)
 		{
-			if (countHit <= sprites.Length)
+			sr.enabled = true;
+			isInvisible = false;
+		}
+		else if (!isImmortal)
+		{
+			countHit++;
+			if (countHit < countForDestroy)
 			{
-				sr.sprite = sprites[countHit - 1];
+				if (countHit <= sprites.Length)
+				{
+					sr.sprite = sprites[countHit - 1];
+				}
+			}
+
+			else
+			{
+				gameManager.AddScore(score);
+				levelManager.BlockDestroyed();
+				Destroy(gameObject);
 			}
 		}
-
-		else
-		{
-			bonusInfo.SetBonusInfo(bonus);
-			levelManager.BlockDestroyed();
-			Destroy(gameObject);
-		}
-	}
-
-	void TranslateBlock()
-	{
-		transform.Translate(Time.deltaTime, 0, 0);
-		isCollision = false;
-		print("куку");
 	}
 }

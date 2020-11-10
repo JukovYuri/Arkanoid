@@ -97,11 +97,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countForDestroy: 2
-  bonus: 5
+  score: 5
   sprites:
   - {fileID: -3114738102144766914, guid: 5191daa97095e2440a021bfd77176e4e, type: 3}
   - {fileID: 4172163778452043772, guid: 5191daa97095e2440a021bfd77176e4e, type: 3}
-  bonusInfo: {fileID: 0}
 --- !u!61 &4682547361073876104
 BoxCollider2D:
   m_ObjectHideFlags: 0

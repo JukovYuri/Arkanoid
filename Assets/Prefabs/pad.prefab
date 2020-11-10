@@ -97,6 +97,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   redZonePad: 12
+  autoPlay: 0
+  ball: {fileID: 3419947294967311601, guid: f8e00f13ef91d65448a22d7ae69b8438, type: 3}
+  gameManager: {fileID: 0}
 --- !u!68 &659016185888176609
 EdgeCollider2D:
   m_ObjectHideFlags: 0

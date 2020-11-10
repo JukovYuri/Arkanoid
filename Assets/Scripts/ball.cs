@@ -4,33 +4,47 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-	float xPosition, yPosition, zPosition;
-	Rigidbody2D rb;
-	Pad pad;
 	public int forceRange;
+	float xPosition, yPosition, yStartPosition, zPosition;
 	bool isStarted;
+	Rigidbody2D rb;
+	[SerializeField]
+	Pad pad;
+	[SerializeField]
+	GameManager gameManager;
 
 	void Start()
 	{
 		pad = FindObjectOfType<Pad>();
-		yPosition = transform.position.y;
-		zPosition = 0;
+		gameManager = FindObjectOfType<GameManager>();
 		rb = GetComponent<Rigidbody2D>();
-
+		yStartPosition = transform.position.y;
+		ToStartPosition();
 	}
+
+	public void ToStartPosition()
+	{		
+		yPosition = yStartPosition;
+		zPosition = 0;
+		isStarted = false;
+	}
+
 	void Update()
 	{
-		if (!isStarted)
+		if (!gameManager.isPause)
 		{
-			StartBall();
-		}
+			if (!isStarted)
+			{
+				StartBall();
 
-		print(rb.velocity.normalized.magnitude);
+			}
+		}
 	}
 
 
 	void StartBall()
 	{
+
 		xPosition = pad.transform.position.x;
 		transform.position = new Vector3(xPosition, yPosition, zPosition);
 		if (Input.GetMouseButtonDown(0))
@@ -42,90 +56,3 @@ public class Ball : MonoBehaviour
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//public class ball : MonoBehaviour
-//{
-//	public float speed;
-//	public Rigidbody2D rb;
-//	bool isStarted;
-//	public Pad pad;
-//	float yPosition;
-
-//	void Start()
-//	{
-//		yPosition = transform.position.y;
-//	}
-
-//	private void Update()
-//	{
-//		if (isStarted)
-//		{
-//			//мяч запущен, ничего не делаем
-//		}
-//		else
-//		{
-//			//	мяч запущен
-//			Vector3 padPosition = pad.transform.position;
-//			Vector3 ballNewPozition = new Vector3(padPosition.x, yPosition, 0);
-//			transform.position = ballNewPozition;
-
-//			//	проверить кнопку мыши
-//			if (Input.GetMouseButtonDown(0))
-//			{
-//				StartBall();
-//			}
-//		}
-
-//		print(rb.velocity);
-//	}
-
-//	void StartBall()
-//	{
-//		Vector2 force = new Vector2(1, 1) * speed;
-//		rb.AddForce(force);
-//		isStarted = true;
-//	}
-
-
-
-
-//	private void OnCollisionEnter2D(Collision2D collision)
-//	{
-//		print("enter!");
-//	}
-
-//	private void OnCollisionExit2D(Collision2D collision)
-//	{
-//		print("exit!");
-//	}
-
-//	private void OnTriggerEnter2D(Collider2D collision)
-//	{
-//		print("trigger enter!");
-//	}
-
-//	private void OnTriggerExit2D(Collider2D collision)
-//	{
-//		print("trigger exit!");
-//	}

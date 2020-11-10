@@ -5,18 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class Floor : MonoBehaviour
 {
+    [SerializeField]
+    GameManager gameManager;
+
+    public Pad pad;
+
+    public Ball ball;
+
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+        pad = FindObjectOfType<Pad>();
+        print($"это pad - {pad}");
+        ball = FindObjectOfType<Ball>();
+        print($"это ball - {ball}");
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (SceneManager.GetActiveScene().buildIndex == 1)
-        {
-            SceneManager.LoadScene(0);
-        }
-        else
-        {
-            SceneManager.LoadScene(1);
-        }
-
+        print("OnTrigger!");
+        gameManager.SubLife();
+        pad.ToStartPosition();
+        ball.ToStartPosition();
     }
 }

@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countForDestroy: 3
-  bonus: 10
-  bonusInfo: {fileID: 0}
+  score: 5
+  isImmortal: 1
   sprites:
   - {fileID: -2950032572879587788, guid: 5191daa97095e2440a021bfd77176e4e, type: 3}
   - {fileID: -7263262467203474343, guid: 5191daa97095e2440a021bfd77176e4e, type: 3}
