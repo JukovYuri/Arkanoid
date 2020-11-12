@@ -52,6 +52,7 @@ MonoBehaviour:
   textScoreForGameOver: {fileID: 8482320999670098486}
   imageBallLife: {fileID: 6330825252534869986}
   DigitLife: {fileID: 7553701572380459651}
+  cam: {fileID: 4412634165655654151}
 --- !u!1001 &4471339911683739745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -124,6 +125,12 @@ PrefabInstance:
 --- !u!4 &4412634165655654148 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 230159194371120997, guid: eedd68c6d1410ca4ab22cb6cf587525d,
+    type: 3}
+  m_PrefabInstance: {fileID: 4471339911683739745}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &4412634165655654151 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 230159194371120998, guid: eedd68c6d1410ca4ab22cb6cf587525d,
     type: 3}
   m_PrefabInstance: {fileID: 4471339911683739745}
   m_PrefabAsset: {fileID: 0}

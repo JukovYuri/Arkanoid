@@ -23,6 +23,8 @@ public class Block : MonoBehaviour
 	SpriteRenderer sr;
 	int countHit;
 
+	public GameObject pickupPrefab;
+
 
 
 	void Start()
@@ -40,33 +42,41 @@ public class Block : MonoBehaviour
 		{
 			sr.enabled = false;
 		}
+	}
 
+	void DestroyBlock()
+	{
+		gameManager.AddScore(score);
+		levelManager.BlockDestroyed();
+		Destroy(gameObject);
+		Instantiate(pickupPrefab, transform.position, Quaternion.identity);
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
+		countHit++;
 		if (isInvisible)
 		{
 			sr.enabled = true;
 			isInvisible = false;
+			return;
 		}
-		else if (!isImmortal)
-		{
-			countHit++;
-			if (countHit < countForDestroy)
-			{
-				if (countHit <= sprites.Length)
-				{
-					sr.sprite = sprites[countHit - 1];
-				}
-			}
 
-			else
+		if (isImmortal)
+		{
+			return;
+		}
+
+		if (countHit < countForDestroy)
+		{
+			if (countHit <= sprites.Length)
 			{
-				gameManager.AddScore(score);
-				levelManager.BlockDestroyed();
-				Destroy(gameObject);
+				sr.sprite = sprites[countHit - 1]; // return
 			}
+		}
+		else
+		{
+			DestroyBlock();
 		}
 	}
 }

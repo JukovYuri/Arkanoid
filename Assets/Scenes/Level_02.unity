@@ -4203,6 +4203,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8109091244131361689, guid: fa117a061f9bcc249b25b617654cbda3,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 2136544757}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa117a061f9bcc249b25b617654cbda3, type: 3}
 --- !u!1001 &1391808564
@@ -5720,5 +5725,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6330825252534869987, guid: 8c793a4bc59a7fa498c962a4ab43a4ef,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6330825252534869987, guid: 8c793a4bc59a7fa498c962a4ab43a4ef,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6330825252534869987, guid: 8c793a4bc59a7fa498c962a4ab43a4ef,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6330825252534869987, guid: 8c793a4bc59a7fa498c962a4ab43a4ef,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c793a4bc59a7fa498c962a4ab43a4ef, type: 3}
+--- !u!20 &2136544757 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 4412634165655654151, guid: 8c793a4bc59a7fa498c962a4ab43a4ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 2136544756}
+  m_PrefabAsset: {fileID: 0}

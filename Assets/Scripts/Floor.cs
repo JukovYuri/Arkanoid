@@ -16,14 +16,19 @@ public class Floor : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
         pad = FindObjectOfType<Pad>();
-        print($"это pad - {pad}");
         ball = FindObjectOfType<Ball>();
-        print($"это ball - {ball}");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("OnTrigger!");
+        Destroy(collision.gameObject);
+
+        if (collision.gameObject.CompareTag(""))
+        {
+            
+        }
+
+
         gameManager.SubLife();
         pad.ToStartPosition();
         ball.ToStartPosition();

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3419947294967311601}
   m_Layer: 0
   m_Name: ball
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,5 +135,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceRange: 20
-  pad: {fileID: 8109091244131361689, guid: fa117a061f9bcc249b25b617654cbda3, type: 3}
+  pad: {fileID: 0}
   gameManager: {fileID: 0}

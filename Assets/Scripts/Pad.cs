@@ -8,6 +8,7 @@ public class Pad : MonoBehaviour
 	public int redZonePad;
 	public bool autoPlay;
 	Ball ball;
+	[SerializeField]
 	GameManager gameManager;
 
 	void Start()
@@ -28,8 +29,8 @@ public class Pad : MonoBehaviour
 	{
 		if (!gameManager.isPause)
 		{
-			xPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
-
+			xPosition = gameManager.cam.ScreenToWorldPoint(Input.mousePosition).x;
+			//xPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition).x;
 			xPosition = Mathf.Clamp(xPosition, -redZonePad, redZonePad);
 			transform.position = new Vector3(xPosition, yPosition, zPosition);
 
@@ -39,7 +40,7 @@ public class Pad : MonoBehaviour
 				xPosition = Mathf.Clamp(xPosition, -redZonePad, redZonePad);
 				transform.position = new Vector3(xPosition, yPosition, zPosition);
 			}
-		}
+		} //return
 
 
 	}

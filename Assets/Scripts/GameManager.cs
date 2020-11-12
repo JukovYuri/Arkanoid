@@ -1,11 +1,14 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
 
 public class GameManager : MonoBehaviour
 {
 
 	int score;
+	[HideInInspector]
 	public bool isPause;
 	[Header("количество жизней")]
 	public int life;
@@ -26,6 +29,7 @@ public class GameManager : MonoBehaviour
 	[Header("UI текст для отображения жизней цифрами")]
 	public Text DigitLife;
 
+	public Camera cam;
 
 	private void Awake()
 	{
@@ -54,6 +58,10 @@ public class GameManager : MonoBehaviour
 	public void StartNewGame()
 	{
 		print("Начинаем игру сначала");
+		//textScoreForGameOver.transform.parent.gameObject.SetActive(false);
+		SetPause();
+		SceneManager.LoadScene(0);
+		Destroy(gameObject);
 	}
 
 	void Update()
