@@ -26,11 +26,15 @@ public class MainPickUp : MonoBehaviour
 		// платформу в норм размер
 		pad.transform.localScale = Vector3.one;
 
+		if (true)
+		{
+
+		}
 
 		foreach (Ball item in balls)
 		{
 			// мячи в норм размер
-			item.transform.localScale = Vector3.one; //new ???
+			item.transform.localScale = Vector3.one;
 
 			// магниты в мячах отключить
 			item.isCollisionWithPadAfterPickUpMagnet = false;

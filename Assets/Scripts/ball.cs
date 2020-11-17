@@ -20,6 +20,11 @@ public class Ball : MonoBehaviour
 	Floor floor;
 	Ball ball;
 
+	private void Awake()
+	{
+		rb = GetComponent<Rigidbody2D>();
+	}
+
 
 
 	void Start()
@@ -31,7 +36,7 @@ public class Ball : MonoBehaviour
 
 		pad = FindObjectOfType<Pad>();
 		gameManager = FindObjectOfType<GameManager>();
-		rb = GetComponent<Rigidbody2D>();
+		
 
 
 		if (isAfterPickUpThreeBall)
@@ -72,37 +77,36 @@ public class Ball : MonoBehaviour
 		}
 
 		StartBall();
-		
+
 	}
 
 	void StartBall()
 	{
-		xPosition = pad.transform.position.x;		
+		xPosition = pad.transform.position.x;
 		transform.position = new Vector3(xPosition, yPosition, zPosition);
 		if (Input.GetMouseButtonDown(0))
 		{
-			StartVelocity(rb);
+			StartVelocity();
+			isStarted = true;
 		}
 
 	}
 
-	public void StartVelocity(Rigidbody2D rb)
+	public void StartVelocity()
 	{
 		float x = Random.Range(-0.75f, 0.75f);
 		Vector2 force = new Vector2(x, 1).normalized * forceRange;
 		rb.velocity = force; //рассмотреть скорость
-		isStarted = true;
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
 
-		if (collision.gameObject.CompareTag("Pad")) //как использовать collision других объектов?
+		if (collision.gameObject.CompareTag("Pad"))
 		{
 			if (isCollisionWithPadAfterPickUpMagnet)
 			{
-				print("приклеить к Pad");
-				ToStartPosition(); //как приклеить в определенном месте?
+				ToStartPosition();
 			}
 
 		}

@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceRange: 10
+  yStartPosition: 0
   isStarted: 0
   isCollisionWithPadAfterPickUpMagnet: 0
-  pad: {fileID: 0}
-  gameManager: {fileID: 0}
+  isAfterPickUpThreeBall: 0

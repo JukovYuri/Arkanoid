@@ -27,7 +27,8 @@ public class PickUpThreeBall : MainPickUp
 
 	void AddMotion (Ball b)
 	{
-		ball.StartVelocity(b.GetComponent<Rigidbody2D>());
+		//b.StartVelocity();
+		b.GetComponent<Rigidbody2D>().velocity = rb.velocity;
 		b.yStartPosition = ball.yStartPosition;
 	}
 }
