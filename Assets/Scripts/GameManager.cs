@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
 	[Space]
 	[Header("для отображения жизней мячами")]
 	public GameObject imageBallLife;
+	[Header("макс. количество отображаемых мячей")]
+	public int balls;
 	[Space]
 	[Header("UI текст для отображения жизней цифрами")]
 	public Text DigitLife;
@@ -49,7 +51,7 @@ public class GameManager : MonoBehaviour
 	{
 		Cursor.visible = false;
 		textScore.text = score.ToString();
-		if (life > 8) { DrawDiditalLife(life); }
+		if (life > balls) { DrawDiditalLife(life); }
 		else { DrawBallLife(life); }
 
 		DontDestroyOnLoad(gameObject);
@@ -57,7 +59,6 @@ public class GameManager : MonoBehaviour
 
 	public void StartNewGame()
 	{
-		print("Начинаем игру сначала");
 		//textScoreForGameOver.transform.parent.gameObject.SetActive(false);
 		SetPause();
 		SceneManager.LoadScene(0);
@@ -69,7 +70,6 @@ public class GameManager : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.Space))
 		{
 			SetPause();
-			print("пауза");
 		}
 	}
 
@@ -83,19 +83,19 @@ public class GameManager : MonoBehaviour
 	void DrawLife (int life)
 	{
 
-		if (life > 8)
+		if (life > balls)
 		{
 			DrawDiditalLife(life);
-		}
-		else if (life <= 0)
-		{
-			imageBallLife.transform.parent.gameObject.SetActive(false); ;
-		}
-		else
-		{
-			DrawBallLife(life);
+			return;
 		}
 
+		if (life <= 0)
+		{
+			imageBallLife.transform.parent.gameObject.SetActive(false);
+			return;
+
+		}
+			DrawBallLife(life);
 	}
 
 	void DrawBallLife(int life)
@@ -103,11 +103,16 @@ public class GameManager : MonoBehaviour
 		DigitLife.transform.parent.gameObject.SetActive(false);
 		imageBallLife.transform.parent.gameObject.SetActive(true);
 
+		if (true)
+		{
+
+		}
+
 		foreach (GameObject item in imagesBallLife)
 		{
 			Destroy(item);
 		}
-		imagesBallLife.Clear();
+		imagesBallLife.Clear(); // проверить работу
 
 		for (int i = 1; i <= life - 1; i++)
 		{
@@ -146,18 +151,18 @@ public class GameManager : MonoBehaviour
 	{
 		if (isPause)
 		{
-			Time.timeScale = 1F;
-			imagePause.gameObject.SetActive(false);
-			Cursor.visible = false;
 			isPause = false;
+			Time.timeScale = 1F;
+			Cursor.visible = false;
 		}
 		else
 		{
-			Time.timeScale = 0F;
-			imagePause.gameObject.SetActive(true);
-			Cursor.visible = true;
 			isPause = true;
+			Time.timeScale = 0F;
+			Cursor.visible = true;
 		}
+
+		imagePause.gameObject.SetActive(isPause);
 	}
 
 	void GameOver()

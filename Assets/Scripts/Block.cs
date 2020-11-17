@@ -15,15 +15,18 @@ public class Block : MonoBehaviour
 	[Header("Неразрушаемость")]
 	public bool isImmortal;
 	public bool isInvisible;
-	[SerializeField]
 	GameManager gameManager;
-	[SerializeField]
 	LevelManager levelManager;
 	public Sprite[] sprites;
 	SpriteRenderer sr;
 	int countHit;
+	[Space]
+	[Header("Шанс выпадания Pickup")]
+	[Range (0, 100)]
+	public int chanceOfDropPickups;
+	[Header("Префабы Pickup")]
+	public GameObject [] pickUps;
 
-	public GameObject pickupPrefab;
 
 
 
@@ -49,7 +52,19 @@ public class Block : MonoBehaviour
 		gameManager.AddScore(score);
 		levelManager.BlockDestroyed();
 		Destroy(gameObject);
-		Instantiate(pickupPrefab, transform.position, Quaternion.identity);
+		CreatePicUp();
+	}
+
+	private void CreatePicUp()
+	{
+		int r = Random.Range(1, 101);
+
+		if (r <= chanceOfDropPickups)
+		{
+			int i = Random.Range(0, pickUps.Length - 1);
+			GameObject pickUpPrefab = pickUps[i];
+			Instantiate(pickUpPrefab, transform.position, Quaternion.identity);
+		}
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
@@ -79,4 +94,9 @@ public class Block : MonoBehaviour
 			DestroyBlock();
 		}
 	}
+
+	//public GameObject GenerationPickUp()
+	//{
+	//	return;
+	//}
 }

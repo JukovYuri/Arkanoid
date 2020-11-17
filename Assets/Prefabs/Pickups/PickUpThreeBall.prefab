@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4682547361073876108
+--- !u!1 &1671353934290615045
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,38 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4682547361073876110}
-  - component: {fileID: 4682547361073876109}
-  - component: {fileID: 4682547361073876111}
-  - component: {fileID: 4682547361073876104}
+  - component: {fileID: 5699034680766154691}
+  - component: {fileID: 8405652382307693068}
+  - component: {fileID: 3606355092596566033}
+  - component: {fileID: 4076630835389782876}
+  - component: {fileID: -4265628193800812479}
   m_Layer: 0
-  m_Name: brick_magenta
+  m_Name: PickUpThreeBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4682547361073876110
+--- !u!4 &5699034680766154691
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4682547361073876108}
+  m_GameObject: {fileID: 1671353934290615045}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9, y: 0, z: 0}
+  m_LocalPosition: {x: 4.731095, y: -13.644751, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4682547361073876109
+--- !u!212 &8405652382307693068
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4682547361073876108}
+  m_GameObject: {fileID: 1671353934290615045}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -72,74 +73,76 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -577312649904740640, guid: 5191daa97095e2440a021bfd77176e4e,
+  m_Sprite: {fileID: 7872874537289834256, guid: f92383455d4f6ad47ab1da14dbcd88ce,
     type: 3}
-  m_Color: {r: 1, g: 0.5019608, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 1}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4682547361073876111
-MonoBehaviour:
+--- !u!50 &3606355092596566033
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4682547361073876108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 269c390ce31b99d438b55f0a5ed6b117, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  countForDestroy: 2
-  score: 5
-  isImmortal: 0
-  isInvisible: 0
-  sprites:
-  - {fileID: -3114738102144766914, guid: 5191daa97095e2440a021bfd77176e4e, type: 3}
-  - {fileID: 4172163778452043772, guid: 5191daa97095e2440a021bfd77176e4e, type: 3}
-  chanceOfDropPickups: 50
-  pickUps:
-  - {fileID: 6599584600476176794, guid: b19cea129dcbd4c48a42c60746c1d1de, type: 3}
-  - {fileID: 6599584600476176794, guid: 7186effddcf99f94baa8731c772b5452, type: 3}
-  - {fileID: 6599584600476176794, guid: e31680716141dc64aab53f0dc01924fa, type: 3}
-  - {fileID: 6599584600476176794, guid: 288e7b77b625ce9439d440b2ca5d78df, type: 3}
-  - {fileID: 1671353934290615045, guid: 55cd048741ff7d64aa12f84b5025aa91, type: 3}
-  - {fileID: 6599584600476176794, guid: 1b8c62598f9888b429a0e422eacc6bb7, type: 3}
-  - {fileID: 6599584600476176794, guid: 000416d3124c5d746b17886b104962d3, type: 3}
-  - {fileID: 6599584600476176794, guid: 8cdffa36116e0504a8fd0fa5dfabc7e7, type: 3}
-  - {fileID: 6599584600476176794, guid: 8e8eada54a0e7fe459f4d0346bab1c9d, type: 3}
-  - {fileID: 1671353934290615045, guid: 04674364cafa5654691ac5fa63f155c8, type: 3}
-  - {fileID: 6599584600476176794, guid: fcccd3f50248d294982651d6cc270fe2, type: 3}
-  - {fileID: 6599584600476176794, guid: b91d8fe9403a6504890205e9afa22745, type: 3}
---- !u!61 &4682547361073876104
+  m_GameObject: {fileID: 1671353934290615045}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0.25
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &4076630835389782876
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4682547361073876108}
+  m_GameObject: {fileID: 1671353934290615045}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 1}
-    newSize: {x: 2, y: 1}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 1}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-4265628193800812479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671353934290615045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc2beaa7421b1b84582952fad25d80c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 1
+  multiples: 2

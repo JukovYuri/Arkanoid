@@ -134,6 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d0a3f9dfd12db41bfe15bdaf89140f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceRange: 20
+  forceRange: 10
+  isStarted: 0
+  isCollisionWithPadAfterPickUpMagnet: 0
   pad: {fileID: 0}
   gameManager: {fileID: 0}

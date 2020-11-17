@@ -11,6 +11,8 @@ public class Floor : MonoBehaviour
     public Pad pad;
 
     public Ball ball;
+    [SerializeField]
+    int countOfBall = 0;
 
     private void Start()
     {
@@ -19,18 +21,37 @@ public class Floor : MonoBehaviour
         ball = FindObjectOfType<Ball>();
     }
 
+    public void BallCreated()
+    {
+        ++countOfBall;
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(collision.gameObject);
 
-        if (collision.gameObject.CompareTag(""))
+        if (collision.gameObject.CompareTag("Ball"))
         {
-            
+
+            if (ball == null)
+            {
+                print("найти!"); // не выводит;
+
+                ball = FindObjectOfType<Ball>(); // почему не может найти мяч из клонов. Пишет missing in Floor;
+            }
+
+            if (countOfBall > 1 )
+            {
+                --countOfBall;           
+                return;
+            }
+
+            gameManager.SubLife();
+            pad.ToStartPosition();
+            ball.ToStartPosition();
+            return;
         }
 
-
-        gameManager.SubLife();
-        pad.ToStartPosition();
-        ball.ToStartPosition();
+        Destroy(collision.gameObject);
     }
 }

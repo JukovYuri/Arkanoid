@@ -46,11 +46,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPause: 0
-  life: 1
+  life: 3
   textScore: {fileID: 6330825251971666407}
   imagePause: {fileID: 6330825251000202205}
   textScoreForGameOver: {fileID: 8482320999670098486}
   imageBallLife: {fileID: 6330825252534869986}
+  balls: 4
   DigitLife: {fileID: 7553701572380459651}
   cam: {fileID: 4412634165655654151}
 --- !u!1001 &4471339911683739745

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 659016185888176609}
   m_Layer: 0
   m_Name: pad
-  m_TagString: Untagged
+  m_TagString: Pad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,7 +98,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   redZonePad: 12
   autoPlay: 0
-  ball: {fileID: 3419947294967311601, guid: f8e00f13ef91d65448a22d7ae69b8438, type: 3}
   gameManager: {fileID: 0}
 --- !u!68 &659016185888176609
 EdgeCollider2D:

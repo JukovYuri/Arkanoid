@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6399133766555126103}
   - component: {fileID: 6399133766555126102}
-  - component: {fileID: 6399133766555126096}
   - component: {fileID: 6399133766555126097}
+  - component: {fileID: 6399133766555126096}
   m_Layer: 0
   m_Name: brick_green
   m_TagString: Untagged
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 6128299156075563123, guid: 5191daa97095e2440a021bfd77176e4e,
     type: 3}
-  m_Color: {r: 0.3443396, g: 1, b: 0.42562592, a: 1}
+  m_Color: {r: 0.5019608, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -84,29 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6399133766555126096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6399133766555126101}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 269c390ce31b99d438b55f0a5ed6b117, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  countForDestroy: 1
-  score: 5
-  isImmortal: 0
-  isInvisible: 0
-  gameManager: {fileID: 0}
-  levelManager: {fileID: 0}
-  sprites:
-  - {fileID: 3386662938922423588, guid: 5191daa97095e2440a021bfd77176e4e, type: 3}
-  - {fileID: -6110656803992641779, guid: 5191daa97095e2440a021bfd77176e4e, type: 3}
-  pickupPrefab: {fileID: 3403909786219067324, guid: b491a4c6baead714596f4c5f582fdb33,
-    type: 3}
 --- !u!61 &6399133766555126097
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -133,3 +110,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6399133766555126096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6399133766555126101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 269c390ce31b99d438b55f0a5ed6b117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  countForDestroy: 1
+  score: 5
+  isImmortal: 0
+  isInvisible: 0
+  sprites:
+  - {fileID: 3386662938922423588, guid: 5191daa97095e2440a021bfd77176e4e, type: 3}
+  - {fileID: -6110656803992641779, guid: 5191daa97095e2440a021bfd77176e4e, type: 3}
+  chanceOfDropPickups: 50
+  pickUps:
+  - {fileID: 6599584600476176794, guid: b19cea129dcbd4c48a42c60746c1d1de, type: 3}
+  - {fileID: 6599584600476176794, guid: 7186effddcf99f94baa8731c772b5452, type: 3}
+  - {fileID: 6599584600476176794, guid: e31680716141dc64aab53f0dc01924fa, type: 3}
+  - {fileID: 6599584600476176794, guid: 288e7b77b625ce9439d440b2ca5d78df, type: 3}
+  - {fileID: 1671353934290615045, guid: 55cd048741ff7d64aa12f84b5025aa91, type: 3}
+  - {fileID: 6599584600476176794, guid: 1b8c62598f9888b429a0e422eacc6bb7, type: 3}
+  - {fileID: 6599584600476176794, guid: 000416d3124c5d746b17886b104962d3, type: 3}
+  - {fileID: 6599584600476176794, guid: 8cdffa36116e0504a8fd0fa5dfabc7e7, type: 3}
+  - {fileID: 6599584600476176794, guid: 8e8eada54a0e7fe459f4d0346bab1c9d, type: 3}
+  - {fileID: 1671353934290615045, guid: 04674364cafa5654691ac5fa63f155c8, type: 3}
+  - {fileID: 6599584600476176794, guid: fcccd3f50248d294982651d6cc270fe2, type: 3}
+  - {fileID: 6599584600476176794, guid: b91d8fe9403a6504890205e9afa22745, type: 3}
