@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PickUpBallScale : MainPickUp
 {
-	public bool isSmaller;
+	[Header ("величина изменения масштаба мяча")][Range(0,2)]
 	public float multiples;
 
 	public override void ApplyEffect()
@@ -14,17 +14,7 @@ public class PickUpBallScale : MainPickUp
 
 		foreach (Ball item in balls)
 		{
-
-			if (isSmaller)
-			{
-				item.transform.localScale /= multiples;
-			}
-
-			else
-			{
-				item.transform.localScale *= multiples;
-			}
-
+			item.transform.localScale *= multiples;
 		}
 	}
 }

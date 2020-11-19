@@ -20,15 +20,16 @@ public class MainPickUp : MonoBehaviour
 	{
 
 		Ball[] balls = FindObjectsOfType<Ball>();
+		Ball ball = FindObjectOfType<Ball>();
 
 		Pad pad = FindObjectOfType<Pad>();
 
 		// платформу в норм размер
 		pad.transform.localScale = Vector3.one;
 
-		if (true)
+		if (ball.isAfterPickUpThreeBall)
 		{
-
+			return;
 		}
 
 		foreach (Ball item in balls)

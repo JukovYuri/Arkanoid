@@ -26,6 +26,7 @@ public class Block : MonoBehaviour
 	public int chanceOfDropPickups;
 	[Header("Префабы Pickup")]
 	public GameObject [] pickUps;
+	Animator anim;
 
 
 
@@ -36,6 +37,7 @@ public class Block : MonoBehaviour
 		sr = GetComponent<SpriteRenderer>();
 		gameManager = FindObjectOfType<GameManager>();
 		levelManager = FindObjectOfType<LevelManager>();
+		//anim = GetComponent<Animator>();
 		if (!isImmortal)
 		{
 			levelManager.BlockCreated();
@@ -45,6 +47,7 @@ public class Block : MonoBehaviour
 		{
 			sr.enabled = false;
 		}
+
 	}
 
 	void DestroyBlock()
@@ -88,15 +91,10 @@ public class Block : MonoBehaviour
 			{
 				sr.sprite = sprites[countHit - 1]; // return
 			}
+			return;
 		}
-		else
-		{
-			DestroyBlock();
-		}
+	
+			DestroyBlock();		
 	}
 
-	//public GameObject GenerationPickUp()
-	//{
-	//	return;
-	//}
 }

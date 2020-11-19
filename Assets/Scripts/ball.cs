@@ -36,7 +36,7 @@ public class Ball : MonoBehaviour
 
 		pad = FindObjectOfType<Pad>();
 		gameManager = FindObjectOfType<GameManager>();
-		
+
 
 
 		if (isAfterPickUpThreeBall)
@@ -65,7 +65,7 @@ public class Ball : MonoBehaviour
 
 	void Update()
 	{
-		print($"скорость --- {rb.velocity.magnitude}");
+		//print($"скорость --- {rb.velocity.magnitude}");
 		if (gameManager.isPause)
 		{
 			return;
@@ -108,7 +108,6 @@ public class Ball : MonoBehaviour
 			{
 				ToStartPosition();
 			}
-
 		}
 	}
 

@@ -144,6 +144,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9002af59e292307489b0b1b8598a9ed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points: 2
-  multiples: 3
-  isSlower: 1
+  points: 1
+  multiples: 0.25

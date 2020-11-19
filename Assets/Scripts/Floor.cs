@@ -32,14 +32,6 @@ public class Floor : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Ball"))
         {
-
-            if (ball == null)
-            {
-                print("найти!"); // не выводит;
-
-                ball = FindObjectOfType<Ball>(); // почему не может найти мяч из клонов. Пишет missing in Floor;
-            }
-
             if (countOfBall > 1 )
             {
                 --countOfBall;           

@@ -10,12 +10,12 @@ public class PickUpThreeBall : MainPickUp
 
 	public override void ApplyEffect()
 	{
-		print("троилка");
-		base.ApplyEffect();
 		ball = FindObjectOfType<Ball>();
 		rb = ball.GetComponent<Rigidbody2D>();
 
+
 		ball.isAfterPickUpThreeBall = true;
+		base.ApplyEffect();
 
 		for (int i = 1; i <= multiples; i++)
 		{
@@ -27,8 +27,14 @@ public class PickUpThreeBall : MainPickUp
 
 	void AddMotion (Ball b)
 	{
+		float x = Random.Range(-1f, 1f);
+		float y = Random.Range(-1f, 1f);
+		float magnitude = rb.velocity.magnitude;
+		Vector2 norm = new Vector2(x, y).normalized;
+		b.GetComponent<Rigidbody2D>().velocity = norm * magnitude; ;
+
 		//b.StartVelocity();
-		b.GetComponent<Rigidbody2D>().velocity = rb.velocity;
-		b.yStartPosition = ball.yStartPosition;
+		//b.GetComponent<Rigidbody2D>().velocity = rb.velocity;
+		//b.yStartPosition = ball.yStartPosition;
 	}
 }

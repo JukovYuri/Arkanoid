@@ -13,11 +13,10 @@ public class PickUpLife : MainPickUp
 		if (isSubtract)
 		{
 			gameManager.SubLife();
-			print("вычесть жизнь");
 			return;
 		}
 
 		gameManager.AddLife();
-		print("добавить жизнь");
+
 	}
 }

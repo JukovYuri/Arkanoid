@@ -145,5 +145,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: -1
-  multiples: 3
-  isSlower: 0
+  multiples: 2

@@ -4,21 +4,12 @@ using UnityEngine;
 
 public class PickUpPadScale : MainPickUp
 {
-	public bool isSmaller;
+	[Header("величина изменения ширины Pad")][Range(0, 2)]
 	public float multiples;
 	public override void ApplyEffect()
 	{
 		base.ApplyEffect();
 		Pad pad = FindObjectOfType<Pad>();
-
-		if (isSmaller)
-		{
-			pad.transform.localScale = new Vector3((1/multiples), 1, 1);
-			print("уменьшить платформу");
-			return;
-		}
-
 		pad.transform.localScale = new Vector3(multiples, 1, 1);
-		print("увеличить платформу");
 	}
 }
