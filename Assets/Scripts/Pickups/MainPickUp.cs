@@ -19,30 +19,30 @@ public class MainPickUp : MonoBehaviour
 	void ClearLastEffects()
 	{
 
-		Ball[] balls = FindObjectsOfType<Ball>();
-		Ball ball = FindObjectOfType<Ball>();
+		//Ball[] balls = FindObjectsOfType<Ball>();
+		//Ball ball = FindObjectOfType<Ball>();
 
-		Pad pad = FindObjectOfType<Pad>();
+		//Pad pad = FindObjectOfType<Pad>();
 
-		// платформу в норм размер
-		pad.transform.localScale = Vector3.one;
+		//// платформу в норм размер
+		//pad.transform.localScale = Vector3.one;
 
-		if (ball.isAfterPickUpThreeBall)
-		{
-			return;
-		}
+		//if (ball.isAfterPickUpThreeBall)
+		//{
+		//	return;
+		//}
 
-		foreach (Ball item in balls)
-		{
-			// мячи в норм размер
-			item.transform.localScale = Vector3.one;
+		//foreach (Ball item in balls)
+		//{
+		//	// мячи в норм размер
+		//	item.transform.localScale = Vector3.one;
 
-			// магниты в мячах отключить
-			item.isCollisionWithPadAfterPickUpMagnet = false;
+		//	// магниты в мячах отключить
+		//	item.DeactivateMagnet();
 
-			// скорость в норм
-			item.GetComponent<Rigidbody2D>().velocity = item.GetComponent<Rigidbody2D>().velocity.normalized * item.forceRange;
-		}
+		//	// скорость в норм
+		//	item.GetComponent<Rigidbody2D>().velocity = item.GetComponent<Rigidbody2D>().velocity.normalized * item.speed;
+		//}
 	}
 
 	public virtual void ApplyEffect()

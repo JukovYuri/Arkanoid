@@ -10,15 +10,13 @@ public class PickUpVelocity : MainPickUp
 
 	public override void ApplyEffect()
 	{
-
 		base.ApplyEffect();
 
 		Ball[] balls = FindObjectsOfType<Ball>();
 
 		foreach (Ball item in balls)
 		{
-			Rigidbody2D rb = item.GetComponent<Rigidbody2D>();
-			rb.velocity *= multiples;
+			item.MultiplySpeed(multiples);
 		}
 
 	}

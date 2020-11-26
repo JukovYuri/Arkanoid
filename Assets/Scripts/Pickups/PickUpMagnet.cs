@@ -10,10 +10,8 @@ public class PickUpMagnet : MainPickUp
 		Ball [] balls = FindObjectsOfType<Ball>();	
 		foreach (Ball item in balls)
 		{
-			item.isCollisionWithPadAfterPickUpMagnet = true;
+			item.ActivateMagnet();
 		}
 	}
-
-
 
 }

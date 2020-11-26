@@ -5,45 +5,43 @@ using UnityEngine.SceneManagement;
 
 public class Floor : MonoBehaviour
 {
-    [SerializeField]
-    GameManager gameManager;
+	[SerializeField] GameManager gameManager;
+	[SerializeField] Ball ball;
+	Pad pad;
+	[SerializeField] int countOfBall = 0;
 
-    public Pad pad;
+	private void Start()
+	{
+		gameManager = FindObjectOfType<GameManager>();
+		pad = FindObjectOfType<Pad>();
+	}
 
-    public Ball ball;
-    [SerializeField]
-    int countOfBall = 0;
+	public void BallCreated()
+	{
+		++countOfBall;
+	}
 
-    private void Start()
-    {
-        gameManager = FindObjectOfType<GameManager>();
-        pad = FindObjectOfType<Pad>();
-        ball = FindObjectOfType<Ball>();
-    }
+	public void OnTriggerEnter2D(Collider2D collision) // мяч триггерит пол
+	{
 
-    public void BallCreated()
-    {
-        ++countOfBall;
-    }
+		if (collision.gameObject.CompareTag("Ball"))
+		{
+			if (countOfBall > 1)
+			{
+				--countOfBall;
+			}
+			else
+			{
+				gameManager.SubLife();
+				pad.ToStartPosition();
+				ball = FindObjectOfType<Ball>();
+				//ball = collision.gameObject.GetComponent<Ball>();
+				ball.ToStartPosition();
+				print(ball); // выводит имя мяча, все ок
+				return;
+			}
+		}
 
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-
-        if (collision.gameObject.CompareTag("Ball"))
-        {
-            if (countOfBall > 1 )
-            {
-                --countOfBall;           
-                return;
-            }
-
-            gameManager.SubLife();
-            pad.ToStartPosition();
-            ball.ToStartPosition();
-            return;
-        }
-
-        Destroy(collision.gameObject);
-    }
+		Destroy(collision.gameObject);
+	}
 }

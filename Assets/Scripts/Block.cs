@@ -8,28 +8,37 @@ public class Block : MonoBehaviour
 {
 	[Header("Количество попаданий в блок до разрушения")]
 	public int countForDestroy;
+
 	[Space]
 	[Header("Количество очков за уничтожение блока")]
 	public int score;
+
 	[Space]
 	[Header("Неразрушаемость")]
 	public bool isImmortal;
+	[Header("Невидимость")]
 	public bool isInvisible;
-	GameManager gameManager;
-	LevelManager levelManager;
+	[Header("Взрывной")]
+	public bool explosive;
+	public float explosionRadius;
+
+	[Space]
 	public Sprite[] sprites;
-	SpriteRenderer sr;
-	int countHit;
+
 	[Space]
 	[Header("Шанс выпадания Pickup")]
 	[Range (0, 100)]
 	public int chanceOfDropPickups;
 	[Header("Префабы Pickup")]
 	public GameObject [] pickUps;
-	Animator anim;
+	[Header("Префабы Рarticles")]
+	public GameObject particles;
 
+	GameManager gameManager;
+	LevelManager levelManager;
+	SpriteRenderer sr;
 
-
+	int countHit;
 
 	void Start()
 	{
@@ -50,15 +59,20 @@ public class Block : MonoBehaviour
 
 	}
 
-	void DestroyBlock()
+	public void DestroyBlock()
 	{
 		gameManager.AddScore(score);
 		levelManager.BlockDestroyed();
+		if (particles)
+		{
+			Instantiate(particles, transform.position, Quaternion.identity);
+		}
+		
 		Destroy(gameObject);
-		CreatePicUp();
+		CreatePickUp();
 	}
 
-	private void CreatePicUp()
+	private void CreatePickUp()
 	{
 		int r = Random.Range(1, 101);
 
@@ -93,8 +107,39 @@ public class Block : MonoBehaviour
 			}
 			return;
 		}
-	
-			DestroyBlock();		
+
+		if (explosive)
+		{
+			Explode();
+		}
+		
+		DestroyBlock();		
+	}
+
+	private void OnDrawGizmos()
+	{
+		Gizmos.color = Color.red;
+		Gizmos.DrawWireSphere(transform.position, explosionRadius);
+	}
+
+	private void Explode()
+	{
+		int layerMask = LayerMask.GetMask("Block");
+		Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius, layerMask);
+
+		foreach (Collider2D item in colliders)
+		{
+			Block block = item.GetComponent<Block>();
+			if (block == null)
+			{
+				Destroy(item.gameObject);
+			}
+			else
+			{
+				block.DestroyBlock();
+			}
+
+		}
 	}
 
 }
