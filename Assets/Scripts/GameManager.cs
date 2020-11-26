@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-
+	public static string keyBestScore = "111";
 	int score;
 	[HideInInspector]
 	public bool isPause;
@@ -33,6 +33,13 @@ public class GameManager : MonoBehaviour
 
 	public Camera cam;
 
+	[Header("UI текст для отображения жизней цифрами")]
+	public AudioClip soundPauseActivate;
+	public AudioClip soundPauseDeactivate;
+
+
+	AudioManager audioManager;
+
 	private void Awake()
 	{
 			GameManager[] gameManagers = FindObjectsOfType<GameManager>();
@@ -45,6 +52,8 @@ public class GameManager : MonoBehaviour
 					break;
 				}
 			}
+
+		audioManager = FindObjectOfType<AudioManager>();
 	}
 
 	void Start()
@@ -53,7 +62,7 @@ public class GameManager : MonoBehaviour
 		textScore.text = score.ToString();
 		if (life > balls) { DrawDiditalLife(life); }
 		else { DrawBallLife(life); }
-
+		
 		DontDestroyOnLoad(gameObject);
 	}
 
@@ -77,6 +86,7 @@ public class GameManager : MonoBehaviour
 	{
 		score += addScore;
 		textScore.text = score.ToString();
+		SaveBestScore();
 	}
 
 
@@ -154,12 +164,14 @@ public class GameManager : MonoBehaviour
 			isPause = false;
 			Time.timeScale = 1F;
 			Cursor.visible = false;
+			audioManager.PlaySound(soundPauseActivate);
 		}
 		else
 		{
 			isPause = true;
 			Time.timeScale = 0F;
 			Cursor.visible = true;
+			audioManager.PlaySound(soundPauseDeactivate);
 		}
 
 		imagePause.gameObject.SetActive(isPause);
@@ -178,6 +190,16 @@ public class GameManager : MonoBehaviour
 	public void Exit()
 	{
 		Application.Quit();
+	}
+
+	public void SaveBestScore()
+	{
+		int oldBestScore = PlayerPrefs.GetInt("bestRecord");
+		if (score > oldBestScore)
+		{
+			PlayerPrefs.SetInt(keyBestScore, score);
+		}
+
 	}
 
 }

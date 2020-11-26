@@ -1314,6 +1314,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager_01
       objectReference: {fileID: 0}
+    - target: {fileID: 6330825251000202204, guid: 8c793a4bc59a7fa498c962a4ab43a4ef,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6330825251422595093, guid: 8c793a4bc59a7fa498c962a4ab43a4ef,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6330825251422595093, guid: 8c793a4bc59a7fa498c962a4ab43a4ef,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6330825251422595093, guid: 8c793a4bc59a7fa498c962a4ab43a4ef,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6330825251422595095, guid: 8c793a4bc59a7fa498c962a4ab43a4ef,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6330825251570397009, guid: 8c793a4bc59a7fa498c962a4ab43a4ef,
         type: 3}
       propertyPath: m_Camera
@@ -1337,6 +1362,11 @@ PrefabInstance:
     - target: {fileID: 6330825252534869987, guid: 8c793a4bc59a7fa498c962a4ab43a4ef,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6330825252842180191, guid: 8c793a4bc59a7fa498c962a4ab43a4ef,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

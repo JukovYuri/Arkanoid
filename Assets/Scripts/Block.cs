@@ -37,6 +37,9 @@ public class Block : MonoBehaviour
 	GameManager gameManager;
 	LevelManager levelManager;
 	SpriteRenderer sr;
+	[Header("Sounds")]
+	AudioManager audioManager;
+	AudioClip audioClip;
 
 	int countHit;
 
@@ -46,7 +49,7 @@ public class Block : MonoBehaviour
 		sr = GetComponent<SpriteRenderer>();
 		gameManager = FindObjectOfType<GameManager>();
 		levelManager = FindObjectOfType<LevelManager>();
-		//anim = GetComponent<Animator>();
+		audioManager = FindObjectOfType<AudioManager>();
 		if (!isImmortal)
 		{
 			levelManager.BlockCreated();
@@ -61,6 +64,7 @@ public class Block : MonoBehaviour
 
 	public void DestroyBlock()
 	{
+		audioManager.PlaySound(audioClip);
 		gameManager.AddScore(score);
 		levelManager.BlockDestroyed();
 		if (particles)

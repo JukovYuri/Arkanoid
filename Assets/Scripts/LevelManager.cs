@@ -26,6 +26,9 @@ public class LevelManager : MonoBehaviour
         {
             LoadLevel();
         }
+
+        GameManager gameManager = FindObjectOfType<GameManager>();
+        gameManager.SaveBestScore();
     }
 
     public void LoadLevel()

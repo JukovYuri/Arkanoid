@@ -12,6 +12,8 @@ public class Ball : MonoBehaviour
 	bool isStarted;
 	bool isMagnet;
 	Rigidbody2D rb;
+	AudioSource audioSource;
+	public AudioClip explosionSound;
 	Pad pad;
 	GameManager gameManager;
 	Floor floor;
@@ -20,6 +22,7 @@ public class Ball : MonoBehaviour
 	private void Awake()
 	{
 		rb = GetComponent<Rigidbody2D>();
+		audioSource = GetComponent<AudioSource>();
 	}
 	void Start()
 
@@ -80,6 +83,11 @@ public class Ball : MonoBehaviour
 		isStarted = false;
 	}
 
+
+	public void ActivateExplosion()
+	{
+		audioSource.clip = explosionSound;
+	}
 	public void ActivateMagnet()
 	{
 		isMagnet = true;
@@ -105,6 +113,7 @@ public class Ball : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
+		audioSource.Play();
 		if (isMagnet && collision.gameObject.CompareTag("Pad"))
 		{
 			xDelta = transform.position.x - pad.transform.position.x;
